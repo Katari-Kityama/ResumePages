@@ -83,6 +83,9 @@ main {
 strong {
     color: #fe83b2;
 }
+h6 {
+    font-size: 1em;
+}
 
 @media screen and (max-width: 800px) {
     main {
