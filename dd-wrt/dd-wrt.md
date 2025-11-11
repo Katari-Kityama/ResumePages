@@ -17,9 +17,9 @@ On August 5th, 2023, in search of increasing the performance of my internet conn
   </div>
 </div>
 
-At the time I was very far away from the home router, which was a strange 5G T-Mobile router. It was the best our family could afford in our rural area. I knew I couldn't control the 5G router's connection easily so instead I opted to improve my local connection which unfortunately had to be wifi. My thought process considered a dedicated router instead of a wifi adapter could potentially drive a more powerful internet connection and could also take advantage of both the 5G band as well as the 2.4G band at the same time. 
+At the time I was very far away from the home router, which was a strange 5G T-Mobile router. It was the best our family could afford in our rural area. I knew I couldn't control the 5G router's connection easily so instead I opted to improve my local connection which unfortunately had to be wifi. I thought a router working like a wifi adapter instead of an actual wifi adapter could potentially improve my terrible connection. More specifically, my thought process was along the lines of a router could potentially drive a more powerful internet connection and could also take advantage of both the 5G band as well as the 2.4G band at the same time. 
 
-And it worked rather well:
+After setting the AC1200 and testing it the results were immediately clear:
 <div style="display:flex;gap:2em;align-items:center;">
   <div style="flex:1;">
 	<h6>Before:</h6>
@@ -35,7 +35,7 @@ This was achieved using DD-WRT's client/station bridge mode, which allows the DD
 
 ---
 ## Later Home-Lab Setups 
-Now that my desktop computer had a much better connection I also wanted the same for my other devices and while the AC1200 router could potentially perform client bridge mode at the same time as maintaining an AP but doing so would degrade performance. 
+Now that my desktop computer had a much better connection I also wanted the same for my other devices. While the AC1200 router could potentially perform client bridge mode and siamotainously host an AP doing so would degrade performance. 
 
 The solution was simple: add a dedicated access point.
 
@@ -63,12 +63,17 @@ A map I made at the time displaying my network setup:
 Today I only use R7000 routers. This is partially for security and partially for performance as it's one of the most common routers DD-WRT is used with. 
 
 Depending on where I'm living I may or may not have a nearby ethernet connection which affects my home-lab network setup. If I don't have ethernet, I plug my own R7000 AP into the home-router via ethernet and plug another R7000 into my PC which connects to the AP via station bridge mode. 
-###### Q. Why not just connect the station bridge directly to the home router?
-A. Performance. With my own AP point I can simply plug in my preconfigured router into the home router and benefit from my own DD-WRT optimizations. Here is an example of one of my optimized access points: 
+
+Ethernet VS no ethernet home-lab setup: 
+![[ModernHomeLab.png]]
+
+Depending on the surrounding interference I will drop the 2.4G band for the station bridge as it can hurt performance rather than help. 
+###### Q. Why not just connect the station bridge directly to the home router like I did in the past?
+A. Performance and convenience. With my own AP point I can simply plug in my preconfigured router into the home router and benefit from my own DD-WRT optimizations. Here is an example of one of my optimized access points: 
 <div style="display:flex;gap:2em;align-items:center;">
   <div style="flex:1;">
 	<p>This is actually the VR streamer AP, not the AP that would serve a station bridge and because it's going in my room it doesn't need beamforming.</p>
-	<p>The most performant settings are channel settings. The channel width can increase bandwidth but a higher channel width creates more opportunities for interference and will have a lower power signal overall.</p>  
+	<p>The most performant settings are channel settings. The channel width can increase bandwidth but a higher channel width creates more opportunities for interference and will have a lower power-signal overall.</p>  
   </div>
   <div style="flex:1;">
     <img style="width:100%;" src="DD-WRTConfig.png">
@@ -77,12 +82,7 @@ A. Performance. With my own AP point I can simply plug in my preconfigured route
 
 The channel itself, or the band of frequencies the wifi operates at, can be set to occupy a frequency range that routers do not commonly use in the US. This means my home-lab can operate on frequencies with very low interference, which is especially important in an apartment complex. This of course requires DFS.
 
-Ethernet VS no ethernet home-lab setup: 
-![[ModernHomeLab.png]]
-
-Depending on the surrounding interference I will drop the 2.4G band for the station bridge as it can hurt performance rather than help. 
-
-I've also experimented with long distance VR connections with great success:![[LongDistanceVRStreaming.png]]
+On another note, I've also experimented with long distance VR connections with great success:![[LongDistanceVRStreaming.png]]
 
 I've tested the connection from Rexburg to Wyoming and Rexburg to Boise. Not only was I able to maintain ~100mbps the latency was also very low, only around 100ms or 1/10th of a second. Stability took a small hit but it was more than playable, especially if the bitrate was lowered. 
 
