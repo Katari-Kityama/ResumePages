@@ -35,7 +35,7 @@ This was achieved using DD-WRT's client/station bridge mode, which allows the DD
 
 ---
 ## Later Home-Lab Setups 
-Now that my desktop computer had a much better connection I also wanted the same for my other devices. While the AC1200 router could potentially perform client bridge mode and siamotainously host an AP doing so would degrade performance. 
+Now that my desktop computer had a much better connection, I also wanted the same for my other devices. While the AC1200 router could potentially perform client bridge mode and simultaneously host an AP, doing so would degrade performance. 
 
 The solution was simple: add a dedicated access point.
 
